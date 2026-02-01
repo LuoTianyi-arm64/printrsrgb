@@ -1,0 +1,18 @@
+[build-system]
+requires = ["maturin>=1.11,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "printrsrgb"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = ["version"]
+[project.scripts]
+printrsrgb = "printrsrgb.__main__:main"
+
+[tool.setuptools.package-data]
+printrsrgb = ["py.typed"]
