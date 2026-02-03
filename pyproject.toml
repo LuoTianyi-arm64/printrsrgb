@@ -11,8 +11,14 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dynamic = ["version"]
+
 [project.scripts]
 printrsrgb = "printrsrgb.__main__:main"
 
 [tool.setuptools.package-data]
 printrsrgb = ["py.typed"]
+
+[tool.maturin]
+bindings = "pyo3"
+packages = ["printrsrgb"]
+package-dir = "src"

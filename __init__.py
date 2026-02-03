@@ -1,7 +1,7 @@
-from .printrsrgb import printrgb
+from .printrsrgb import printrgb     
 import sys
-__all__ = ["printrgb"]
-__version__ = "0.1.1"
+__all__ = ["printrsrgb","printrgb"]
+__version__ = "0.1.0"
 
 if __name__ =='__main__':
     printrgb("". join(map(str,sys.argv[1:])), rainbow = 1)
