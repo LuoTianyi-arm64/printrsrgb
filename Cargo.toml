@@ -10,4 +10,5 @@ license = "MIT"
 name = "core"
 crate-type = ["cdylib"] 
 [dependencies]
-pyo3 = { version = "0.27.2", features = ["extension-module"] }
+pyo3 = { version = "0.28.0", features = ["extension-module"] }
+crossterm = "0.29.0"

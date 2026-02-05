@@ -4,10 +4,15 @@ import shutil
 from typing import Literal
 
 # const
-rainbow_color = []
-color = []
 
-#TODO
+
+def get_terminal_width() -> None:
+    return shutil.get_terminal_size().columns
+
+
+def get_color_default(angle: int) -> tuple:
+    return rainbow_color[angle % 360]
+
 
 class printrgb:
     def __init__(self):
@@ -28,7 +33,7 @@ class printrgb:
         flush: Literal[False] = False,
         swap_fbc: bool = False,
     ) -> None:
-        get_color = GetColorDefault if get_color is None else get_color
+        get_color = get_color_default if get_color is None else get_color
         if not rainbow:
             colored_text = ""
             if foreground_color or background_color:

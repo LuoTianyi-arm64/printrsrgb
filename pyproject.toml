@@ -21,4 +21,5 @@ printrsrgb = ["py.typed"]
 [tool.maturin]
 bindings = "pyo3"
 packages = ["printrsrgb"]
+module-name = "core"
 package-dir = "src"
