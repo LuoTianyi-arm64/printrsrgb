@@ -8,25 +8,25 @@ static RAINBOW_COLOR: [[u8; 3]; 360] = [[237, 138, 171], [238, 138, 169], [238, 
 static COLOR: [&str;16] = ["black","red","green","yellow","blue","magenta","cyan","white","lightblack","lightred","lightgreen","lightyellow","lightblue","lightmagenta","lightcyan","lightwhite"];
 
 #[pymodule]
-fn core(m: &Bound<'_, PyModule>) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(GetColorDefault, m)?)?;
+fn core(_py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
+    m.add_function(wrap_pyfunction!(GetDefaultColor, m)?)?;
     m.add_function(wrap_pyfunction!(TextPreProcessor, m)?)?;
     m.add_function(wrap_pyfunction!(GetTerminalWidth, m)?)?;
     Ok(())
 }
 
-
 #[pyfunction]
-fn GetColorDefault(angle: u8) -> (u8, u8, u8) {
+fn GetDefaultColor(angle: u16) -> (u8, u8, u8) {
     let index = angle as usize % 360;
     let color = RAINBOW_COLOR[index];
     (color[0], color[1], color[2])
 }
 
+//TODO 仅printrsrgb内部使用，不需要暴露给用户
 #[pyfunction]
 fn GetTerminalWidth() -> u16 {
     let out = terminal::size().map(|(cols, _)| cols).unwrap_or(0);
-    println!("{}", out);
+    //println!("{}", out);
     io::stdout().flush().unwrap();
     out
 }

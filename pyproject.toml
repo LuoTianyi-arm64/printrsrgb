@@ -13,7 +13,7 @@ classifiers = [
 dynamic = ["version"]
 
 [project.scripts]
-printrsrgb = "printrsrgb.__main__:main"
+printrsrgb = "core:main_rust"
 
 [tool.setuptools.package-data]
 printrsrgb = ["py.typed"]
