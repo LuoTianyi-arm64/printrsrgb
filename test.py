@@ -13,8 +13,9 @@ def get_terminal_width() -> None:
     return shutil.get_terminal_size().columns
 print("Terminal width(py):", get_terminal_width())
 print("Terminal width(rs):", core.GetTerminalWidth())
-from printrsrgb import printrsrgb
+import core
 import time,sys
+import printrsrgb
 def main() -> None:
     argv = sys.argv
     ask  = ''
